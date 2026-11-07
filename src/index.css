@@ -1,0 +1,178 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    --background: oklch(99.5% 0.002 250);
+    --foreground: oklch(19% 0.03 258);
+    --card: oklch(100% 0 0);
+    --card-foreground: oklch(19% 0.03 258);
+    --popover: oklch(100% 0 0);
+    --popover-foreground: oklch(19% 0.03 258);
+    --primary: oklch(28% 0.07 255);
+    --primary-foreground: oklch(98% 0.005 250);
+    --secondary: oklch(96% 0.008 250);
+    --secondary-foreground: oklch(28% 0.07 255);
+    --muted: oklch(96.5% 0.006 250);
+    --muted-foreground: oklch(52% 0.02 256);
+    --accent: oklch(95.5% 0.012 250);
+    --accent-foreground: oklch(28% 0.07 255);
+    --destructive: oklch(55% 0.22 27);
+    --destructive-foreground: oklch(99% 0 0);
+    --border: oklch(90% 0.01 252);
+    --input: oklch(90% 0.01 252);
+    --ring: oklch(55% 0.2 25);
+    --brand: oklch(53% 0.22 26);
+    --brand-foreground: oklch(99% 0 0);
+    --brand-soft: oklch(95% 0.04 25);
+    --teal: oklch(68% 0.11 190);
+    --shadow-editorial: 0 1px 2px oklch(20% 0.03 258 / 0.06), 0 8px 24px -12px oklch(20% 0.03 258 / 0.18);
+    --shadow-lift: 0 12px 40px -16px oklch(20% 0.03 258 / 0.35);
+
+    --font-cairo: 'Cairo', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-tajawal: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .dark {
+    --background: oklch(17% 0.02 258);
+    --foreground: oklch(96% 0.005 250);
+    --card: oklch(21% 0.025 258);
+    --card-foreground: oklch(96% 0.005 250);
+    --popover: oklch(21% 0.025 258);
+    --popover-foreground: oklch(96% 0.005 250);
+    --primary: oklch(96% 0.005 250);
+    --primary-foreground: oklch(20% 0.03 258);
+    --secondary: oklch(26% 0.03 258);
+    --secondary-foreground: oklch(96% 0.005 250);
+    --muted: oklch(26% 0.03 258);
+    --muted-foreground: oklch(72% 0.02 254);
+    --accent: oklch(28% 0.035 258);
+    --accent-foreground: oklch(96% 0.005 250);
+    --destructive: oklch(62% 0.2 27);
+    --destructive-foreground: oklch(99% 0 0);
+    --border: oklch(100% 0 0 / 0.12);
+    --input: oklch(100% 0 0 / 0.16);
+    --ring: oklch(62% 0.2 26);
+    --brand: oklch(62% 0.21 26);
+    --brand-foreground: oklch(99% 0 0);
+    --brand-soft: oklch(32% 0.08 26);
+    --teal: oklch(72% 0.11 190);
+    --shadow-editorial: 0 1px 2px oklch(0% 0 0 / 0.4), 0 8px 24px -12px oklch(0% 0 0 / 0.6);
+    --shadow-lift: 0 12px 40px -16px oklch(0% 0 0 / 0.7);
+  }
+
+  html {
+    font-family: var(--font-cairo);
+    scroll-behavior: smooth;
+  }
+}
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-brand: var(--brand);
+  --color-brand-foreground: var(--brand-foreground);
+  --color-brand-soft: var(--brand-soft);
+  --color-teal: var(--teal);
+}
+
+/* Reference App Utility Styles */
+.surface-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-editorial);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.surface-card:hover {
+  box-shadow: var(--shadow-lift);
+  border-color: var(--brand);
+  transform: translateY(-2px);
+}
+
+.kicker {
+  letter-spacing: 0.08em;
+  color: var(--brand);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.headline-link {
+  transition: color 0.2s;
+}
+
+.headline-link:hover {
+  color: var(--brand);
+}
+
+.ticker-track {
+  white-space: nowrap;
+  gap: 3rem;
+  animation: 32s linear infinite qu-ticker;
+  display: inline-flex;
+}
+
+@keyframes qu-ticker {
+  0% { transform: translate(-100%); }
+  to { transform: translate(0); }
+}
+
+@keyframes qu-rise {
+  0% { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.fade-rise {
+  animation: qu-rise 0.4s ease-out both;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.7);
+}
+
+.font-cairo {
+  font-family: 'Cairo', sans-serif;
+}
+
+.font-tajawal {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

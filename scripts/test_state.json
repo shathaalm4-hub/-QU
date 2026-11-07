@@ -1,0 +1,20 @@
+{
+  "requestId": "req-jour-mtyych3dtxsu",
+  "userId": "jour-mtyych3dtxsu",
+  "testStudent": {
+    "name": "سلطان الناصر (صحفي تدريب معتمد)",
+    "email": "sultan.press.1789251836770@qu.edu.sa",
+    "studentId": "4722355631",
+    "major": "صحافة ونشر رقمي",
+    "academicLevel": "المستوى الثالث",
+    "skills": [
+      "التحرير الصحفي",
+      "التحقيقات الاستقصائية"
+    ],
+    "password": "TestPassword@2026",
+    "bio": "صحفي متدرب متخصص في التغطيات الميدانية والتحقيقات الصحفية"
+  },
+  "initialDbMd5": "3aa9a860591300b1502a1bca9c0ba233",
+  "auditLogCount": 3,
+  "timestamp": "2026-09-12T22:23:56.866Z"
+}
